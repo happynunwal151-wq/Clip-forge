@@ -206,7 +206,7 @@ def process_job(jid: str, source: Path, count: int, clip_len: int, aspect: str, 
         set_job(jid,status='failed',stage='Failed',error=str(e))
 
 @app.get('/', response_class=HTMLResponse)
-def home(): return (ROOT/'static'/'index.html').read_text(encoding='utf-8')
+def home(): return (ROOT/'index.html').read_text(encoding='utf-8')
 
 @app.get('/api/health')
 def health():
