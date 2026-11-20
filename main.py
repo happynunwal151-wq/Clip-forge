@@ -4,12 +4,12 @@ from pathlib import Path
 from typing import Any
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, BackgroundTasks
 from fastapi.responses import FileResponse, HTMLResponse
-from fastapi.staticfiles import StaticFilesknha
+from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from store import init_db, save_job, load_jobs, list_creators, add_creator, delete_creator, list_queue, add_queue, delete_queue
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parent
 DATA = ROOT / 'data'; UPLOADS = DATA / 'uploads'; OUTPUTS = DATA / 'outputs'
 for p in (UPLOADS, OUTPUTS): p.mkdir(parents=True, exist_ok=True)
 load_dotenv(ROOT / '.env')
