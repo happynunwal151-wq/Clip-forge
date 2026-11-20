@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
-from .store import init_db, save_job, load_jobs, list_creators, add_creator, delete_creator, list_queue, add_queue, delete_queue
+from store import init_db, save_job, load_jobs, list_creators, add_creator, delete_creator, list_queue, add_queue, delete_queue
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / 'data'; UPLOADS = DATA / 'uploads'; OUTPUTS = DATA / 'outputs'
