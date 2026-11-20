@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any
 from fastapi import FastAPI, File, Form, HTTPException, UploadFile, BackgroundTasks
 from fastapi.responses import FileResponse, HTMLResponse
-from fastapi.staticfiles import StaticFiles
+from fastapi.staticfiles import StaticFilesknha
 from dotenv import load_dotenv
 from pydantic import BaseModel, Field
 from store import init_db, save_job, load_jobs, list_creators, add_creator, delete_creator, list_queue, add_queue, delete_queue
@@ -20,6 +20,7 @@ init_db()
 JOBS.update(load_jobs())
 
 app = FastAPI(title='ClipForge AI', version='1.1.0', description='Local-first AI short-form video clipping studio')
+(ROOT / 'static').mkdir(parents=True, exist_ok=True)
 app.mount('/static', StaticFiles(directory=ROOT / 'static'), name='static')
 
 VIDEO_EXTS = {'.mp4', '.mov', '.mkv', '.webm', '.m4v', '.avi'}
